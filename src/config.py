@@ -8,3 +8,6 @@ LOGGER = logging.getLogger()
 if not load_dotenv():
     LOGGER.error("Not found .env file")
 
+UVICORN_SERVER_HOST = environ.get("UVICORN_SERVER_HOST")
+UVICORN_SERVER_PORT = environ.get("UVICORN_SERVER_PORT")
+
