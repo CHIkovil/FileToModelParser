@@ -1,8 +1,10 @@
 from logging import getLogger
 from sys import exit
 from src.Web.Server.web_server import WebServer
+from os import environ
 
-from config import (
+
+from src.config import (
     UVICORN_SERVER_HOST,
     UVICORN_SERVER_PORT,
 )
@@ -13,6 +15,8 @@ if not UVICORN_SERVER_HOST \
         or not UVICORN_SERVER_PORT:
     LOGGER.error("None value env")
     exit(1)
+
+environ['OMP_THREAD_LIMIT'] = '5'
 
 
 def _setup_web_server() -> WebServer:
